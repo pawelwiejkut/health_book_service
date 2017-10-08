@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="odataJPAService"
+                      transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>model.Temperature</class>
+
+        <!--<exclude-unlisted-classes>true</exclude-unlisted-classes>-->
+        <properties>
+            <property name="javax.persistence.jdbc.driver"     value="com.sap.db.jdbc.Driver"/>
+            <!--<property name="javax.persistence.jdbc.user"       value="m10619_wrocltrop"/>-->
+            <!--<property name="javax.persistence.jdbc.password"   value="Alamakota09"/>-->
+            <property name="hibernate.connection.datasource"     value="java:comp/env/jdbc/DefaultDB"/>
+
+            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
+            <property name="hibernate.dialect"                 value="org.hibernate.dialect.HANAColumnStoreDialect"/>
+            <!--<property name="hibernate.max_fetch_depth"         value="3"/>-->
+            <!-- property name="jboss.as.jpa.providerModule" value="hibernate3-bundled"
+                / -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- C3P0 connection pool -->
+            <!--<property name="hibernate.c3p0.timeout" value="600" />-->
+            <!--<property name="hibernate.c3p0.maxIdleTimeExcessConnections" value="20"/>-->
+
+            <!--&lt;!&ndash;  Connection testing settings &ndash;&gt;-->
+            <!--<property name="hibernate.c3p0.validate" value="false" />-->
+            <!--<property name="hibernate.c3p0.idle_test_period" value="30" />-->
+            <!--<property name="hibernate.c3p0.automaticTestTable" value="conTestTable" />-->
+
+            <!-- Enable Hibernate's automatic session context management -->
+            <!--<property name="current_session_context_class" value="thread"/>-->
+
+            <!--&lt;!&ndash; Disable the second-level cache &ndash;&gt;-->
+            <!--<property name="cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />-->
+
+            <!--&lt;!&ndash; Echo all executed SQL to stdout &ndash;&gt;-->
+            <!--<property name="show_sql" value="false</property>-->
+
+            <property name="hibernate.jdbc.batch_size" value="20"/>
+            <!--Number rows to be returned if no setted-->
+            <property name="hibernate.jdbc.fetch_size" value="20" />
+            <property name="hibernate.jdbc.use_get_generated_keys" value="true"/>
+
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <property name="hibernate.default_schema" value="DEV_AAGRXFYJFIC2C0WMSJ7R2QVS4"/>
+
+            <!--FIXING: Table "...".hibernate_sequence table not found.-->
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
